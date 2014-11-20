@@ -207,6 +207,24 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+a {
+  transition: color .4s;
+  color: #265C83;
+}
+a:link,
+a:visited {
+  color: #265C83;
+}
+a:hover {
+  color: #7FDBFF;
+}
+a:active {
+  transition: color .3s;
+  color: #007BE6;
+}
+.link {
+  text-decoration: none;
+}
 code,
 kbd,
 pre,
@@ -2405,6 +2423,21 @@ html.webapp,
 }
 .audio-player .audio-volume .icon {
   color: gray;
+}
+.card-header {
+  margin: 15px 10px 0;
+  color: #999999;
+}
+.card {
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-shadow: 0 1px -1px #e7e7e7;
+  box-shadow: 0 1px -1px #e7e7e7;
+  border: 1px solid #e7e7e7;
+  background: #ffffff;
+  margin: 8px 10px 0;
+  padding: 12px 12px;
+  color: #333333;
 }
 .pull-to-refresh {
   position: absolute;
