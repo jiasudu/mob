@@ -48,3 +48,36 @@ footer{
 .pagination .next{
     float: right;
 }
+.doc-btn{
+    margin-left:10px;
+}
+#J_demo{
+    position: fixed;
+    top:50px;
+    right:0;
+    height: 664px;
+    width: 356px;
+    background-image: url(../images/phone.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+    z-index: 9999;
+}
+#J_demo iframe {
+    position: relative;
+    display: block;
+    margin: 14.415301% auto 0;
+    height: 85.54216867%;
+    width: 89.88764045%;
+    background: #DDD;
+    border: 1px solid #DDD;
+    outline: none;
+    border-radius: 6px;
+}
+.module{
+    opacity: 0.3;
+}
+.CodeMirror{
+    height:auto !important;
+}
