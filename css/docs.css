@@ -48,3 +48,29 @@ footer{
 .pagination .next{
     float: right;
 }
+.icons-list{
+  background-color: #F5F5F5;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 9.5px;
+}
+.icons-list li{
+  background-color: #eee;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  float: left;
+  list-style: none;
+  height: 90px;
+  text-align:center;
+  padding:15px 10px 10px;
+  width: 12.5%;
+  min-width: 70px;
+}
+.icons-list li .icon-class{
+  display:block;
+  font-size: 12px;
+  margin-top: 5px;
+  width: 100%;
+  word-break:break-all;
+}
