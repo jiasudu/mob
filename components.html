@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="_site/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="_site/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="_site/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="_site/stylesheets/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="_site/stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="codemirror/codemirror.css" media="screen">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>组件文档</title>
+
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="_site/index.html"><b>Mob</b></a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+
+                    <li>
+
+                        <a href="_site/index.html">Home</a>
+                    </li>
+                    <li class="">
+                        <a href="_site/getting-started.html">Getting started</a>
+                    </li>
+                    <li>
+                        <a href="_site/css.html">CSS</a>
+                    </li>
+
+                    <li>
+
+                        <a href="./components.html">Components</a>
+                    </li>
+                    <li class="">
+                        <a href="_site/javascript.html">JavaScript</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<header>
+    <div class="container">
+        <h1>组件文档</h1>
+
+        <h2>由基本CSS组合成的组件</h2>
+    </div>
+</header>
+<div id="container" class="container">
+
+<section>
+    <h3 id="header">Header
+
+    </h3>
+
+    <p>header是页面顶部横栏。</p>
+
+    <textarea class="code">
+        <div class="header">
+            <h1>Example page header
+                <small>Subtext for
+                    header
+                </small>
+            </h1>
+        </div>
+    </textarea>
+</section>
+
+
+<section>
+    <h3 id="tabs">Tabs
+
+    </h3>
+
+    <p>Tabs 是可切换标签</p>
+
+    <textarea class="code">
+        <ul class="nav nav-pills">
+            <li>tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+    </textarea>
+</section>
+
+<section>
+    <h3 id="tabs1">Tabs
+
+    </h3>
+
+    <p>另外一个示例:</p>
+
+    <textarea class="code">
+        <ul class="nav nav-pills nav-justified">
+            <li>tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+    </textarea>
+</section>
+
+<section>
+    <h3 id="navbar">Navbar
+
+    </h3>
+
+    <p>航栏用navbar 组件实现topbar</p>
+
+    <textarea class="code">
+        <nav class="navbar navbar-default">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                </ul>
+            </div>
+        </nav>
+    </textarea>
+</section>
+
+
+<section>
+    <h3 id="navbar1">Navbar
+
+    </h3>
+
+    <p>用navbar 实现 bottom-bar</p>
+
+    <textarea class="code">
+        <nav class="navbar">
+            <a><span class="icon-home"></span>Home</a>
+            <a><span class="icon-message"></span>Message</a>
+            <a><span class="icon-friend"></span>Friend</a>
+            <a><span class="icon-search"></span>Search</a>
+            <a><span class="icon-more"></span>More</a>
+        </nav>
+    </textarea>
+</section>
+
+
+<section>
+    <h3>Searchbar
+
+    </h3>
+
+    <p>搜索框</p>
+
+    <textarea class="code">
+        <div class="searchbar"><input
+                class="search-query">
+            <button class="btn search-btn">Cancel</button>
+        </div>
+    </textarea>
+</section>
+
+
+<section>
+    <h3>Breadcrumbs
+
+    </h3>
+
+    <p>面包屑导航</p>
+
+    <textarea class="code">
+        <nav class="breadcrumb">
+            <a href="a">全部文件</a><span class="divider"></span>
+            <a href="###">...</a><span class="divider"></span>
+            <a href="b">新建文件夹</a><span class="divider"></span>
+            <a href="" class="active">电影</a>
+        </nav>
+    </textarea>
+</section>
+
+
+<section>
+    <h3>Lists
+
+    </h3>
+
+    <p>列表</p>
+
+    <textarea class="code">
+        <ul class="list-group">
+            <li class="item">Cras justo odio</li>
+            <li class="item">Dapibus ac facilisis in</li>
+            <li class="item">Morbi leo risus</li>
+            <li class="item">Porta ac consectetur ac</li>
+            <li class="item">Vestibulum at eros</li>
+        </ul>
+    </textarea>
+</section>
+
+<section>
+    <h3>Lists
+
+    </h3>
+
+    <p>另一个列表的例子</p>
+
+    <textarea class="code">
+        <ul class="list">
+            <li>
+    <span><img src="img/list-icon-1.jpg"
+               class="img-circle"></span><span
+                    class="main"> Item 1 </span>
+            </li>
+            <li>
+    <span><img src="img/list-icon-2.png"
+               class="img-circle"></span><span
+                    class="main"> Item 2 </span>
+            </li>
+        </ul>
+    </textarea>
+</section>
+
+
+<section>
+    <h3>Aside
+
+    </h3>
+    <textarea class="code">
+        <nav>
+            <a><span class="icon-home"></span>Home</a>
+            <a><span class="icon-setting"></span>Setting</a>
+        </nav>
+    </textarea>
+</section>
+
+<section>
+    <h3>Badges
+
+    </h3>
+
+    <p>Badges 的例子</p>
+
+    <textarea class="code">
+        <a href="#">Inbox <span class="badge">42</span></a>
+    </textarea>
+</section>
+
+<section>
+    <h3>Badges
+
+    </h3>
+
+    <p>另一个Badges例子</p>
+
+    <textarea class="code">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+                <a href="#">
+                    <span class="badge pull-right">42</span>
+                    Home
+                </a>
+            </li>
+            ...
+        </ul>
+    </textarea>
+</section>
+
+
+<section>
+    <h3>Thumbnails</h3>
+    <textarea class="code">
+        <li><a href="#media"><i class="icon-chevron-right"></i> Media object</a></li>
+        <li><a href="#alerts"><i class="icon-chevron-right"></i> Alerts</a></li>
+        <li><a href=""><i class="icon-chevron-right"></i> Message</a></li>
+        <li><a href=""><i class="icon-chevron-right"></i> Layouts</a></li>
+        <li><a href=""><i class="icon-chevron-right"></i> Scaffolding</a></li>
+    </textarea>
+</section>
+
+
+<section>
+    <h3 id="pagination">Pagination</h3>
+
+    <p>上一页/下一页 + 下拉菜单翻页方式
+    </p>
+    <textarea class="code">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                </button>
+
+                <select class="paging-select">
+                    <option value="0">第1页</option>
+                    <option value="1">第2页</option>
+                </select>
+
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+            </div>
+        </div>
+    </textarea>
+</section>
+
+
+<section>
+    <h3>设置按钮
+
+    </h3>
+    <textarea class="code">
+        <button type="button" class="btn btn-default">
+            setting
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+    </textarea>
+</section>
+
+
+<section>
+    <h3>搜索框
+
+    </h3>
+    <textarea class="code">
+        <form>
+            <div class="se-box">
+                <input type="search" class="se-input" value="">
+                <button type="submit" class="se-btn">百度一下</button>
+            </div>
+        </form>
+    </textarea>
+</section>
+
+<section>
+    <h3>列表
+
+    </h3>
+    <textarea class="code">
+        <form>
+            <ul class="media-list-group">
+                <li class="list-item">
+                    <a href="1.html">
+                        <div class="list-item-img"><img src="cover.png"></div>
+                        <div class="list-item-content">
+                            <span class="bookname">美女总裁俏佳人</span>
+                            <span class="penname">醉酒望明月</span>
+                            <span class="cate">都市传奇</span>
+                            <span class="sep">|</span>
+                            <span class="status">完结</span>
+                        </div>
+                        <div class="list-item-subcontent">
+                            <span class="read-ico">荐</span>
+                            <span class="read-cont">杀手头子偶遇绝色俏佳人，不占便宜不是人。</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </form>
+    </textarea>
+</section>
+
+
+<section>
+    <h3>Loading
+
+    </h3>
+    <textarea class="code">
+        <div class="loading">加载中</div>
+    </textarea>
+</section>
+
+<section>
+    <h3>加载出错
+
+    </h3>
+    <textarea class="code">
+        <div class="loading loading-fail">网络不给力 <a href="javascript:history.go(0)" class="load_retry">重试</a></div>
+    </textarea>
+</section>
+
+<section>
+    <h3>Audio
+    </h3>
+
+    <p>提供音频控制组件,具体实例查看 [examples/audio-player.html]:examples/audio-player.html</p>
+    <textarea class="code">
+        <div class="audio-player">
+            <div class="audio-progress">
+                0:00
+                <progress class="audio-progress-bar"
+                          max="100" value="10"></progress>
+                -2:14
+            </div>
+            <div id="audio-info">
+                <h1 class="title">Song Name</h1>
+
+                <p class="descript">Author</p>
+            </div>
+            <div class='audio-controls'>
+                <div>
+                    <span class="icon icon-backward"></span>
+                </div>
+                <div>
+                    <span class="icon icon-play"></span>
+                </div>
+                <div>
+                    <span class="icon icon-forward"></span>
+                </div>
+            </div>
+            <div class="audio-volumn">
+                <span class="icon icon-volume-down"></span>
+                <progress max="100" value="10" class="audio-volume-slidebar"></progress>
+                <span class="icon icon-volume-up"></span>
+            </div>
+        </div>
+    </textarea>
+</section>
+
+
+<div class="pagination">
+
+    <div class="previous">
+        <a href='_site/css.html'>上一篇:CSS组件</a>
+    </div>
+
+
+    <div class="next">
+        <a href='_site/javascript.html'>下一篇:javascript组件</a>
+    </div>
+
+    <div style="clear:both">
+
+    </div>
+</div>
+
+<footer>
+    &copy;MOB framework
+</footer>
+<script src="_site/js/jquery-1.9.0.min.js"></script>
+<script src="_site/bootstrap/js/bootstrap.min.js"></script>
+<script src="codemirror/codemirror.js"></script>
+<script src="codemirror/xml-fold.js"></script>
+<script src="codemirror/matchtags.js"></script>
+<script src="codemirror/xml.js"></script>
+<script src="_site/javascripts/demo.js"></script>
+</div>
+
+</body>
+</html>
