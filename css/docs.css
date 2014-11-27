@@ -1,0 +1,76 @@
+body{
+    color: #474747;
+}
+header{
+  padding:60px 0;
+  background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
+}
+header h1 {
+    color: #fff;
+}
+header h2 {
+    font-size: 26px;
+    color: #9ddcff;
+    font-weight: normal;
+    line-height: 1.3;
+    width: 540px;
+    letter-spacing: 0;
+}
+footer{
+  text-align:center;
+  font-size:12px;
+}
+#example{
+  background:#eee;
+}
+#phone{
+  position:relative;
+  float:right;
+  width:386px;
+  height:760px;
+  background:url('../img/phone.png') no-repeat; /* 482 * 950*/
+  background-position:0px -50px;
+  background-size:386px 760px;
+}
+#phone.index{
+  position:static;
+}
+#index-descript{
+  width:664px;
+  float:left;
+}
+.article{
+  padding-left:210px;
+}
+.pagination .previous{
+    float: left;
+}
+.pagination .next{
+    float: right;
+}
+.icons-list{
+  background-color: #F5F5F5;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 9.5px;
+}
+.icons-list li{
+  background-color: #eee;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  float: left;
+  list-style: none;
+  height: 90px;
+  text-align:center;
+  padding:15px 10px 10px;
+  width: 12.5%;
+  min-width: 70px;
+}
+.icons-list li .icon-class{
+  display:block;
+  font-size: 12px;
+  margin-top: 5px;
+  width: 100%;
+  word-break:break-all;
+}
