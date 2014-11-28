@@ -133,6 +133,17 @@ module.exports = function(grunt) {
                 }
             }
         },
+        jekyll: {
+          options: {
+            config: '_config.yml'
+          },
+          docs: {},
+          github: {
+            options: {
+              raw: 'github: true'
+            }
+          }
+        },
         copy: {
             font: {
                 expand: true,
@@ -174,5 +185,6 @@ module.exports = function(grunt) {
     grunt.registerTask('dev', 'Start a developing envirment', [
         'concurrent:dev'
     ]); 
+    grunt.registerTask('docs-github', ['jekyll:github']);
 }
 /* vim: set expandtab ts=4 sw=4 sts=4 tw=100: */
