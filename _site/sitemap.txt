@@ -1,5 +1,4 @@
 
-/docs/components/Searchbar.html
 /docs/components/aside.html
 /docs/css/aside.html
 /docs/components/audio.html
@@ -10,8 +9,8 @@
 /docs/css/content.html
 /docs/javascript/delay.html
 /docs/css/grid.html
-/docs/css/header.html
 /docs/components/header.html
+/docs/css/header.html
 /docs/css/helper.html
 /docs/css/icon.html
 /docs/css/image.html
@@ -22,6 +21,7 @@
 /docs/components/navbar.html
 /docs/css/page.html
 /docs/components/pagination.html
+/docs/components/searchbar.html
 /sitemap.txt
 /docs/javascript/tab.html
 /docs/css/table.html
