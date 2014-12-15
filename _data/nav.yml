@@ -7,7 +7,7 @@
   type: category
 
 - title: page
-  url: /docs/css/page.html
+  url: ./docs/css/page.html
   type: sub
 
 - title: topbar
