@@ -127,149 +127,119 @@
 
 /* vim: set expandtab ts=4 sw=4 sts=4 tw=100: */
 
-;(function (window, document) {
-    $(".aside").on("tap",function(){
-
-    });
-}(window, document));
-;(function ($, window, document) {
-    "use strict"; // jshint ;_;
-    /**
-     * 弹出层和对话框的基础组件  
-     * 示例:
-     *      $(".tips").modal();
-     */
-    $.fn.Modal = function(options){
-        
-    }
-    /**
-     * 对话框
-     * 示例:
-     *      $(".dialog").dialog();
-     */
-    $.fn.Dialog = function(options){
-        var me = this;                                                                                 
-        this.$el = options.el || $("#dialogPanel");                                                                  
-        if (options){                                                                                  
-            if (options.$el) this.$el = $(options.$el);                                                
-            if (options.confirm) this.confirm = options.confirm;                                       
-        }                                                                                              
-        this.$el.find(".btn-confirm").bind("click",function(){                                         
-            if(me.confirm){                                                                            
-                me.confirm.call(me,this);                                                              
-            }                                                                                          
-        });                                                                                            
-        this.$el.find(".btn-cancel").bind("click",function(){                                          
-            me.hide();                                                                                 
-        }); 
-    }
-
-    $.fn.Dialog.prototype = {                                                                         
-        pos : function () {                                                                            
-            this.$el.css({                                                                             
-                top     : window.pageYOffset + (window.innerHeight - 85)*0.5 + 'px',                   
-                left    : (window.innerWidth - 216)*0.5 + 'px'                                         
-            })                                                                                         
-        },                                                                                             
-        show : function(options){                                                                      
-            if(this.showed) return;                                                                    
-            this.pos();                                                                                
-            if(options.msg){                                                                           
-                $(".dialog-tip",this.$el).text(options.msg);                                           
-            }                                                                                          
-            this.$el.addClass("show");                                                                 
-            this.showed = true;                                                                        
-        },                                                                                             
-        hide : function(){                                                                             
-            if(!this.showed) return;                                                                   
-            this.$el.removeClass("show");                                                              
-            this.showed = false;                                                                       
-        }                                                                                              
-    };          
-
-}($, window, document));
 /**
- * nav:
- *     (class)
- *     data-target href
- *
- * content:
- *     (class) tab-content tab-pane
- * 
- * methods:
- *     show
- *     activate
- *
- * @todo 
- *  动画 
- *  绑定 data-api 
- *  nav-tab 不在 tab-pane中时 nav-tab的切换
+ * take a photo in the mobile phone and return the photo's image data.
+ * support ios safari 6+, android.
  */
-;(function ($, window, document) {
-    
-    "use strict"; 
 
-    /* TAB CLASS DEFINITION */
-    var Tab = function (element) {
-        this.element = $(element);
+;
+(function(window, $){
+    "use strict"; 
+   
+    var Camera = function(el, callback){
+        this.event = null;
+        //this.imgType = 'image/png';
+        this.imgType = 'image/jpeg';
+        var me = this;
+        $(el).on('change', function(event){
+            me.capture(event);
+            callback.apply(me, [event]);
+        });
     }
 
-    Tab.prototype = {
-        show: function () {
-            var $this = this.element,
-                target_selector = $this.attr('data-target') || $this.attr('href'),
-                target = target_selector ? $(target_selector) : $this,
-                container = target.closest('.tab-content');
-
-            if ( $this.hasClass('active') ) return;
-                
-            var previous = container.find('.tab-pane.active');
-            $this.trigger('show', [previous]);
-            this.activate(target, container, function () {
-                $this.trigger('shown', [previous]);
-            })
+    Camera.prototype = {
+        'capture': function(event){
+            this.event = event;
+            return this;
         },
-
-        activate: function ( element, container, callback) {
-            var $active = container.find('.tab-pane.active'),
-                transition = callback && $active.hasClass('fade');
-            function next() {
-                $active.removeClass('active');
-                element.addClass('active');
-                if (transition) {
-                  element[0].offsetWidth; // reflow for transition
-                  element.addClass('in');
-                } else {
-                  element.removeClass('fade');
-                }
-                callback && callback();
+        'getImage': function(callback){
+            return this.getImageByUrl(callback)
+                || this.getImageByFileRead(callback)
+        },
+        'getImageByUrl': function(callback){
+            var url = this.getUrl();
+            var img = new Image();
+            img.src = url;
+            img.onload = function() {
+                callback(img)
             }
-            transition ? $active.one(transition.end, next) : next();
-            $active.removeClass('in');
+            return img
+        },
+        'getImageByFileRead': function(){
+            var file = this.getFile(this.event);
+            var fileReader = new FileReader();
+            var img = new Image();
+            fileReader.onload = function (event) {
+                img.src = event.target.result;
+            };
+            fileReader.readAsDataURL(file);
+            return img;
+        },
+        'getData': function(){                     // @API
+            return this.getDataByUrl() 
+                || this.getDataByFileRead();
+        },
+        'getDataByUrl': function(){
+            var canvas = this.getCanvasByUrl();
+            return canvas.toDataURL(this.imgType) || null;
+        },
+        'getDataByFileRead': function(){
+            var canvas = this.getCanvasByFileRead();
+            return canvas.toDataURL(this.imgType) || null;
+        },
+        'getCanvas': function(){                       // @API
+            return this.getCanvasByUrl() 
+                || this.getCanvasByFileRead();
+        },
+        'getCanvasByUrl': function(){
+            var file = this.getFile();
+            var URL = window.URL || window.webkitURL;
+            var imgURL = URL.createObjectURL(file);
+            var canvas = document.createElement("canvas");
+            canvas.src = imgURL;
+            return canvas; 
+        },
+        'getCanvasByFileRead': function(){
+            var file = this.getFile();
+            var fileReader = new FileReader();
+            var canvas = document.createElement("canvas");
+            fileReader.onload = function (event) {
+                canvas.src = event.target.result;
+            };
+            fileReader.readAsDataURL(file);
+            return canvas
+        },
+        'getFile':function(){
+            var files = this.event.target.files,
+                file;
+                if (files && files.length > 0) {
+                    file = files[0];
+                }else{
+                    return null;
+                }
+            return file;         
+        },
+        'getUrl': function(){
+            var file = this.getFile();
+            var URL = window.URL || window.webkitURL;
+            var imgURL = URL.createObjectURL(file);
+            return imgURL;
         }
-  }
+    }
 
- /*
-  * TAB PLUGIN DEFINITION
-  */
-  $.fn.tab = function ( option ) {
-    return this.each(function () {
-      var tab = new Tab(this);
-      if (typeof option == 'string') tab[option]();
-    })
-  }
+    /*
+     * Camera PLUGIN DEFINITION
+     */
 
- /*
-  * TAB DATA-API
-  */
+    $.fn.camera = function ( option ) {
+        return this.each(function () {
+            var camera = new Camera(this);
+            if (typeof option == 'string') camera[option]();
+        });
+    }
 
-  $(document).on('click.tab.data-api', '[data-toggle="tab"]', function (e) {
-    e.preventDefault();
-    $(this).tab('show');
-  });
+})(window, $);
 
-}($, window, document));
-/* vim: set expandtab ts=4 sw=4 sts=4 tw=100: */
 
 ;(function ($, window, document) {
     "use strict"; // jshint ;_;
@@ -332,6 +302,185 @@
 
 }($, window, document));
 
+;
+(function ($, window, document) {
+    "use strict"; // jshint ;_;
+    var PullToRefresh = function(options){
+        var me = this;
+        this.heightRange = 40;
+        this.animationDuration = 80;
+        this.done = false;
+        this.startPos = {x: 0 , y: 0};
+        this.time = 0;
+        this.pulledClassName = "pull-to-refresh-status-pulled";
+        this.loadingClassName = "pull-to-refresh-status-loading";
+        if(options){
+            $.extend(this, options);
+        }
+        $(document).on("touchstart", function(e){
+            me.onTouchstart.apply(me, [e]);
+        })
+        .on("touchmove", function(e){
+            me.onTouchmove.apply(me, [e]);
+        })
+        .on("touchend", function(e){
+            me.onTouchend.apply(me, [e]);
+        });
+    }
+    
+    $.extend(PullToRefresh.prototype, {
+        onTouchstart: function(e){
+            if (e && e.touches){
+                var touch = e.touches[0];
+            }else{
+                return;
+            }
+            this.startPos = { 
+                'x': touch.pageX,
+                'y': touch.pageY
+            }
+            this.time = new Date().getTime();
+            this.done = false;
+        },
+        onTouchmove: function(e){
+            if (e && e.touches && e.touches.length > 0){
+                var now = new Date().getTime();
+                if ((now - this.time) < this.animationDuration){
+                    return;
+                }else{
+                    this.time = now;
+                }
+                var touch = e.touches[0];
+            }else{
+                return;
+            }
+            this.pos = {
+                'x': touch.pageX,
+                'y': touch.pageY
+            }
+            var scrollY = this.pos.y - this.startPos.y
+            if ( scrollY < 6) {
+                return;
+            }
+
+            var top_ = parseInt(this.bind.css('top')) || 0;
+            if( top_ < this.heightRange){
+                this.bind.css('top', scrollY > this.heightRange ?
+                        this.heightRange : scrollY);
+                return;
+            }else{
+                this.done = true;
+                $(".pull-to-refresh").addClass(this.pulledClassName)// change icon style
+                return;
+            }
+        },
+        onTouchend: function(e){
+            if(this.done && this.callback){
+                this.loading();
+                this.callback.call(this);
+            } else {
+                this.cancel();
+            }
+        },
+        loading: function(){
+            $(".pull-to-refresh").removeClass(this.pulledClassName)// change icon style
+                .addClass(this.loadingClassName)
+        },
+        back: function(){
+            this.bind.css('top', 0);
+            $(".pull-to-refresh").removeClass(this.pulledClassName)// change icon style       
+                .removeClass(this.loadingClassName)
+        },
+        cancel: function(){
+            this.back();
+        }
+    });
+
+    $.fn.pullToRefresh = function(options){
+        var callback;
+        if (typeof options == "function"){
+            callback = options;
+        }
+        var bind = this.parent('.pullable');
+        options = {
+            "callback": callback,
+            "target": this,
+            "bind": bind
+        }
+
+        var pullToRefresh = new PullToRefresh(options);
+        return pullToRefresh;
+    }
+
+}($, window, document));
+
+;(function(){
+    "use strict";
+    var SmartBar = function(){
+        this.y = window.pageYOffset;  
+        this.lastTime = new Date().getTime();
+        this.isShow = true;
+        this.intervarTime = 300; 
+        var me = this;
+        $(document).on("touchstart", function(e){
+            me.onTouchstart.apply(me, [e])
+        });
+        $(window).on('scroll', function(e){
+            me.handle.apply(me, [e]);
+        }, false);
+    };
+    
+    $.extend(SmartBar.prototype, {
+        // Bind touch event
+        onTouchstart: function(e){
+            this.y = window.pageYOffset;
+            if (e && e.touches){
+                var touch = e.touches[0];
+            }else{
+                return;
+            }
+        },
+        hide: function(){
+            $('.smartbar').hide();
+            this.isShow = false;
+        },
+        show: function(){
+            $('.smartbar').show();
+            this.isShow = true;
+        },
+        // Set function running interval.
+        checkInterval: function(){
+            var thisTime = new Date().getTime();
+            if (thisTime - this.lastTime < this.intervarTime){
+                return false;
+            }
+            this.lastTime = thisTime;           
+            return true;
+        },
+        // Check if trigger hidden event
+        isTriggerHidden: function(){
+            return (this.moveY > 0 && this.isShow);
+        },
+        // Check if trigger show event
+        isTriggerShow: function(){
+            return (this.moveY < 0 && Math.abs(this.moveY) > 20 && !this.isShow);
+        },
+        // Check if action match show/hide bar condition.
+        handle: function(e){
+            if(!this.checkInterval()) return;    
+            this.moveY = window.pageYOffset - this.y;
+            if (this.isTriggerHidden()){
+                this.hide();
+            }else if(this.isTriggerShow()){
+                this.show();
+            }
+        }
+    });
+
+    var smartbar = new SmartBar();
+
+})();
+/* vim: set expandtab ts=4 sw=4 sts=4 tw=100: */
 
 /**
  * nav:
@@ -472,9 +621,3 @@
 
 }($, window, document));
 /* vim: set expandtab ts=4 sw=4 sts=4 tw=100: */
-
-if ($.os.iphone){
-    setTimeout(function() {
-        window.scrollTo(0, 0);
-    },0);
-}

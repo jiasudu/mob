@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/fonts.css" rel="stylesheet">
 <link href="css/docs.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
@@ -38,7 +39,7 @@
         
           <li>
         
-          <a href="../components.html">Components</a>
+          <a href="./components.html">Components</a>
           </li>
           <li class="">
           <a href="./javascript.html">JavaScript</a>
@@ -159,27 +160,57 @@
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;modal-backdrop&quot;</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></div>
 
+<h3 id="pull-to-refresh">下拉刷新 (Pull To Refresh)</h3>
+
+<p>实例请查看<a href="examples/pull-to-refresh.html">examples/pull-to-refresh.html</a></p>
+
+<p>步骤1：添加下拉组件HTML代码</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;pull-to-refresh&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-to-refresh-icon icon icon-arrow-up&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-to-refresh-text&quot;</span><span class="nt">&gt;</span>Pull To Refresh<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-to-refresh-done-text&quot;</span><span class="nt">&gt;</span>Release To Refresh<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;pull-to-refresh-loading&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-to-refresh-loading-icon icon icon-refresh&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-to-refresh-loading-text&quot;</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p>步骤2：添加class使目标元素可下拉</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;page-content pullable&quot;</span><span class="nt">&gt;</span>
+        ...
+    <span class="nt">&lt;/section&gt;</span></code></pre></div>
+
+<p>步骤3: 添加下拉刷新触发后要执行的函数</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#pull-to-refresh&quot;</span><span class="p">).</span><span class="nx">pullToRefresh</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="kd">var</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>  <span class="c1">//下拉刷新完成后要执行的回调函数</span>
+        <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">me</span><span class="p">.</span><span class="nx">back</span><span class="p">();</span>
+            <span class="p">},</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="p">})</span></code></pre></div>
+
+<h3 id="smart-bar">Smart Bar</h3>
+
+<p>Smart Bar 是一个智能显示工具栏的组件。当你往下滚动屏幕时，工具栏会收起隐藏。当你往上快速滚动屏幕时，工具栏会显示。这能给用户全屏的阅读体验，适用于阅读类的网页/App。
+示例: <a href="examples/smartbar.html">examples/smartbar.html</a></p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">&#39;topbar topbar-fixed toolbar smartbar&#39;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Mob Smartbar Example<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span></code></pre></div>
+
 <h3 id="carousel">Carousel</h3>
 
 <pre><code>首页新功能介绍的滚动
 </code></pre>
-
-<h3 id="section-5">点击延迟</h3>
-<pre><code>移动浏览器因为支持双击事件会有一个点击穿透现象。该组件会给浏览器加一个点击延迟，解决点击穿透现象。
-</code></pre>
-
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&#39;test.html&#39;</span> <span class="na">class=</span><span class="s">&#39;delay-tap&#39;</span><span class="nt">&gt;</span>test<span class="nt">&lt;/a&gt;</span></code></pre></div>
-
-<h3 id="section-6">返回顶部</h3>
-
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#39;nav-top&#39;</span><span class="nt">&gt;</span>返回顶部<span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 
 
     <div class="pagination">
     
     <div class="previous">
-        <a href='../components.html'>上一篇:组件文档</a>
+        <a href='components.html'>上一篇:组件文档</a>
     </div>
     
     

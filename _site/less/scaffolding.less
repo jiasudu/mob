@@ -1,0 +1,55 @@
+@import "mixins.less";
+
+body > * {
+    // remove highlight in elements
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    // remove outline effects in elements
+    outline: none;  
+}
+
+// Images  
+// -------------------------
+      
+// Rounded corners
+.img-rounded {
+    width:54px;
+    .border-radius(6px);
+}    
+      
+// Add polaroid-esque trim
+.img-polaroid {
+    width:54px;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    -moz-shadow: 0 1px 3px rgba(0,0,0,.1);
+    -webkit-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+// Perfect circle
+.img-circle {
+    width:54px;
+    .border-radius(500px); // crank the border-radius so it works with most reasonably sized images
+}
+
+// Box utils
+.box{
+    .box-model('horizontal');
+}
+.box-vertical{
+    .box-model('vertical');
+}
+.flex0 {
+    .box-flex(0);
+}
+.flex, .flex1 {
+    .box-flex(1);
+}
+.flex2 {
+    .box-flex(2);
+}
+.flex3 {
+    .box-flex(3);
+}
