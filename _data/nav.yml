@@ -1,0 +1,132 @@
+- title: 快速入门
+  url: /docs/beginning/index.html
+  type: category
+
+- title: CSS
+  url: #
+  type: category
+
+- title: page
+  url: /docs/css/page.html
+  type: sub
+
+- title: topbar
+  url: /docs/css/topbar.html
+  type: sub
+
+- title: header
+  url: /docs/css/header.html
+  type: sub
+
+- title: content
+  url: /docs/css/content.html
+  type: sub
+
+- title: aside
+  url: /docs/css/aside.html
+  type: sub
+
+- title: bottombar
+  url: /docs/css/bottombar.html
+  type: sub
+
+- title: table
+  url: /docs/css/table.html
+  type: sub
+
+- title: grid
+  url: /docs/css/grid.html
+  type: sub
+
+- title: button
+  url: /docs/css/button.html
+  type: sub
+
+- title: tip
+  url: /docs/css/tip.html
+  type: sub
+
+- title: image
+  url: /docs/css/image.html
+  type: sub
+
+- title: icon
+  url: /docs/css/icon.html
+  type: sub
+
+- title: helper
+  url: /docs/css/helper.html
+  type: sub
+
+- title: Components
+  url: #
+  type: category
+
+- title: header
+  url: /docs/components/header.html
+  type: sub
+
+- title: tabs
+  url: /docs/components/tabs.html
+  type: sub
+
+- title: navbar
+  url: /docs/components/navbar.html
+  type: sub
+
+- title: searchbar
+  url: /docs/components/searchbar.html
+  type: sub
+
+- title: breadcrumbs
+  url: /docs/components/breadcrumbs.html
+  type: sub
+
+- title: list
+  url: /docs/components/list.html
+  type: sub
+
+- title: aside
+  url: /docs/components/aside.html
+  type: sub
+
+- title: badges
+  url: /docs/components/badges.html
+  type: sub
+
+- title: thumbnails
+  url: /docs/components/thumbnails.html
+  type: sub
+
+- title: pagination
+  url: /docs/components/pagination.html
+  type: sub
+
+- title: loading
+  url: /docs/components/loading.html
+  type: sub
+
+- title: audio
+  url: /docs/components/audio.html
+  type: sub
+
+- title: Javascript
+  url: #
+  type: category
+
+- title: tab
+  url: /docs/javascript/tab.html
+  type: sub
+
+- title: modal
+  url: /docs/javascript/modal.html
+  type: sub
+
+- title: delay
+  url: /docs/javascript/delay.html
+  type: sub
+
+- title: top
+  url: /docs/javascript/top.html
+  type: sub
+
