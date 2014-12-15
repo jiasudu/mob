@@ -8,7 +8,7 @@
 
 - title: page
   url: /docs/css/page.html
-  type:
+  type: sub
 
 - title: topbar
   url: /docs/css/topbar.html
