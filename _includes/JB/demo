@@ -1,3 +1,3 @@
 <div id='J_demo'>
-<iframe src='{{ASSET_PATH}}/themes/mob/mob/demo.html' />
+<iframe src='{{ASSET_PATH}}/assets/themes/mob/mob/demo.html' />
 </div>
