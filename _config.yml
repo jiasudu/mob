@@ -32,7 +32,7 @@ JB :
   version : 0.3.0
 
 
-  ASSET_PATH : http://mobframe.github.io/mob/assets
+  ASSET_PATH : http://mobframe.github.io/mob
 
   archive_path: /archive.html
   categories_path : /categories.html
