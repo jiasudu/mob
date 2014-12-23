@@ -136,7 +136,7 @@
 (function(window, $){
     "use strict"; 
    
-    var Camera = function(el, callback){
+    var Camera = window.Camera = function(el, callback){
         this.event = null;
         //this.imgType = 'image/png';
         this.imgType = 'image/jpeg';
@@ -724,10 +724,9 @@
 // http://phonegap-tips.com/articles/essential-phonegap-css-webkit-tap-highlight-color.html
 
 ;(function(){
-    // tap 点击延时绑定
  
     //tap highlight
-    if($.os.android){
+    if($.os && $.os.android){
         $(".tap")
             .live('touchstart',function(){
                 $(this).data('background', $(this).css('background'));

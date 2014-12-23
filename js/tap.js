@@ -7,10 +7,9 @@
 // http://phonegap-tips.com/articles/essential-phonegap-css-webkit-tap-highlight-color.html
 
 ;(function(){
-    // tap 点击延时绑定
  
     //tap highlight
-    if($.os.android){
+    if($.os && $.os.android){
         $(".tap")
             .live('touchstart',function(){
                 $(this).data('background', $(this).css('background'));

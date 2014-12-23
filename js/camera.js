@@ -7,7 +7,7 @@
 (function(window, $){
     "use strict"; 
    
-    var Camera = function(el, callback){
+    var Camera = window.Camera = function(el, callback){
         this.event = null;
         //this.imgType = 'image/png';
         this.imgType = 'image/jpeg';
