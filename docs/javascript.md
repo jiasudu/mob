@@ -175,3 +175,24 @@ Smart Bar 是一个智能显示工具栏的组件。当你往下滚动屏幕时�
 
     首页新功能介绍的滚动
 
+### Camera 
+
+调用手机照相机功能
+示例：[examples/camera.html](examples/camera.html)
+
+
+步骤1：添加调用时的html代码
+
+{% highlight html %}
+        <button id="camera"><span class="icon icon-camera">/span></button>
+{% endhighlight %}
+
+步骤2：调用时的js代码：
+
+
+{% highlight javascript %}
+    $('#camera').camera(function(img){
+        handle(img) // img is the pic user uploaded.
+    })
+{% endhighlight%}
+

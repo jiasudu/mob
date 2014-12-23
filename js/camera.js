@@ -9,7 +9,6 @@
    
     var Camera = window.Camera = function(el, callback){
         this.event = null;
-        //this.imgType = 'image/png';
         this.imgType = 'image/jpeg';
         var me = this;
         $(el).on('change', function(event){
@@ -102,10 +101,11 @@
      * Camera PLUGIN DEFINITION
      */
 
-    $.fn.camera = function ( option ) {
+    $.fn.camera = function ( callback ) {
         return this.each(function () {
-            var camera = new Camera(this);
-            if (typeof option == 'string') camera[option]();
+            var camera = new Camera(this, function(event){
+                this.getImage(callback)
+            });
         });
     }
 

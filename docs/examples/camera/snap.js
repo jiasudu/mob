@@ -37,24 +37,21 @@ Snap.prototype = {
     'localSnap': function(event){
         $(this.conf.local_snap_image).trigger('click');
     },
-    'detect': function(event, first){
+    'detect': function(img, first){
         var me = this;
         this.step.snap.end();
         this.maskShow();
         this.step.detect.start();
-        var img = this.camera.getImage(function(img){
-            if(first){
-                drawToCanvas(img);
+        if(first){
+            drawToCanvas(img);
+        }
+        me.handlers[me.action]();
+        setTimeout(function(){
+            me.maskHide();
+            if(me.resultCallback){
+                me.resultCallback();
             }
-            me.handlers[me.action]();
-            setTimeout(function(){
-                me.maskHide();
-                if(me.resultCallback){
-                    me.resultCallback();
-                }
-            }, 1000);
-        });
-
+        }, 1000);
     },
     'checkEnv': function(){
         if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
@@ -71,15 +68,13 @@ Snap.prototype = {
         $(this.conf.local_snap_btn).on('click', function(event){
             me.localSnap.call(me, event)
         });
-
-        $(this.conf.snap_image).on('change', function(event){
-            me.camera.capture(event);
-            me.detect.call(me, event, true);
+        
+        $(this.conf.snap_image).camera(function(img){
+            me.detect.call(me, img, true);
         });
-
-        $(this.conf.local_snap_image).on('change', function(event){
-            me.camera.capture(event);
-            me.detect.call(me, event, true);
+      
+        $(this.conf.local_snap_image).camera(function(img){
+            me.detect.call(me, img, true);
         });
     },
     'bindClickTo': function(ele){
