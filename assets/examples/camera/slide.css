@@ -1,0 +1,17 @@
+ul{list-style-type:none;margin:0;padding:0;}
+li{margin:0;padding:0;}
+#slide{position:relative;height:80px;overflow:hidden;}
+#slide ul{position:absolute;left:0;top:0;}
+#slide li{float:left;width:60px;text-align:center;height:60px;line-height:80px;margin:0 10px;}
+#slide.show{z-index:999;}
+#slide ul.animate {
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+.toolbar .rotate {
+    margin: 6px 16px 0 0 ;
+    background:url(xz.png) no-repeat;
+    background-size:40px 40px;
+}
