@@ -1,0 +1,318 @@
+<!doctype html>
+<html class="webapp">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <title>Snap  Search</title>
+        <!-- 
+        <script src="../js/zepto.js"></script>
+        -->
+        <script src="camera/jquery.js"></script>
+        <script src="../js/mob.js"></script>
+        <script src="camera/hammer.js"></script>
+        <script src="camera/snap.js"></script>
+        <script src="camera/kittydar-0.1.1.js"></script>
+        <script src="camera/detectCats.js"></script>
+        <script src="camera/slide.js"></script>
+        <script src='camera/popupBottom.js'></script>
+        <script src='camera/rotate.js'></script>
+        <!-- 
+        <link rel="stylesheet" href="../css/mob.css">
+        -->
+        <link rel="stylesheet" href="camera/mob.css">
+        <link rel="stylesheet" href="camera/slide.css">
+        <style>
+            body{
+                font-family:microsoft yahei;
+            }
+            #camera{
+                text-align:center;
+                background:url(camera/lens.png) no-repeat;
+                background-size:100% 100%; /* 640 × 852 */
+                background-position:center;
+            }
+            #preview{
+                position: absolute;
+                z-index:1;
+                top:0;
+                left:0;
+                text-align:center;
+                background-position:center;
+                background-size:100% 100%; /* 640 × 852 */
+            }
+            #annotations{
+                position: absolute;
+                z-index:2;
+                top:0;
+                left:0;
+            }
+            #viewer-container{
+                margin: 0 auto;
+                position: relative;
+            }
+            #viewer{
+                position: relative;
+                z-index: 1;
+            }
+            #progress{
+                z-index:2;
+                top:30px;
+                left:0;
+                font-size: 26px;
+                width:100%;
+                font-weight: bold;
+                text-align: center;
+                color: #aaa;
+            }
+            #progress a{
+                text-decoration: none;
+                display: inline-block;
+                padding: 2px 4px;
+                margin: 4px 4px 0px 0px;
+                -webkit-border-radius: 6px;
+                background-color: rgb(28,105,255);
+                color: white;
+                font-weight: 100;
+            }
+            #progress p{
+                margin: 6px 0px;
+            }
+            .take_a_photo{
+                background:url(camera/btn.png) no-repeat; /* 250 x 94 */
+                background-size:125px 47px;
+                width:125px;
+                height:47px;
+                border:0;
+                padding:0;
+                margin:0 auto;
+                display:block;
+                -webkit-tap-highlight-color: none;
+            }
+            .hide{
+                display: none; 
+            }
+            .result{
+                height: 400px;
+                width : 100%;
+                position: fixed;
+                z-index:10;
+                background-color: white;
+            }
+            .result_container{
+                display: -webkit-box;
+                -webkit-box-align: center;
+                -webkit-box-pack:  center;
+                width: 100%;
+                height: 270px;
+            }
+            .sub-toolbar{
+                left:0;
+                width:100%;
+                z-index:10;
+                position:absolute;
+                bottom:50px;
+            }
+            #slide ul li span{
+                font-size:13px;
+                vertical-align: -25px;
+                display:none;
+            }
+            .toolbar{
+                left:0;
+                width:100%;
+                z-index:10;
+                position:fixed;
+                bottom:0px;
+            }
+            .icon-cat{
+                background:url('camera/icons/cat.jpg') no-repeat;
+            }
+            .icon-more{
+                background:url('camera/icons/more.png') no-repeat;
+            }
+            #slide .icon{
+                border: 1px solid #c6c8cb;
+                border-bottom: none;
+                border-radius: 5px 5px 0 0;
+                background-size: 80px 80px;
+                box-shadow: 2px 2px 5px #d3d6da;
+                background-position: center;
+            }
+            #mask{
+                position:absolute;
+                left:0;
+                top:0;
+                width:100%;
+                height:100%;
+                background:#000;
+                opacity:0.7;
+                z-index:100;
+                display:none;
+            }
+            .content {
+                position:relative;
+                top:40%;
+                width: 100%;
+                margin: 0 auto;
+                padding-top: 50px;
+            }
+            .circle {
+                background-color: rgba(0,0,0,0);
+                border: 5px solid rgba(0,183,229,0.9);
+                opacity: .9;
+                border-right: 5px solid rgba(0,0,0,0);
+                border-left: 5px solid rgba(0,0,0,0);
+                border-radius: 50px;
+                box-shadow: 0 0 35px #2187e7;
+                width: 50px;
+                height: 50px;
+                margin: 0 auto;
+                -moz-animation: spinPulse 1s infinite ease-in-out;
+                -webkit-animation: spinPulse 1s infinite linear;
+            }
+            .circle1 {
+                background-color: rgba(0,0,0,0);
+                border: 5px solid rgba(0,183,229,0.9);
+                opacity: .9;
+                border-left: 5px solid rgba(0,0,0,0);
+                border-right: 5px solid rgba(0,0,0,0);
+                border-radius: 50px;
+                box-shadow: 0 0 15px #2187e7;
+                width: 30px;
+                height: 30px;
+                margin: 0 auto;
+                position: relative;
+                top: -50px;
+                -moz-animation: spinoffPulse 1s infinite linear;
+                -webkit-animation: spinoffPulse 1s infinite linear;
+            }
+            @-webkit-keyframes spinPulse {
+                0% { -webkit-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7; }
+                50% { -webkit-transform:rotate(145deg); opacity:1;}
+                100% { -webkit-transform:rotate(-320deg); opacity:0; }
+            }
+            @-webkit-keyframes spinoffPulse {
+                0% { -webkit-transform:rotate(0deg); }
+                100% { -webkit-transform:rotate(360deg); }
+            }
+            .rotate{
+                position:absolute;
+                right:0;
+                top:0;
+                background:red;
+                width: 40px;
+                height: 40px;
+                border: 0;
+                padding: 0;
+                display: none;
+                -webkit-tap-highlight-color: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="camera" class="container">
+            <div id="aperture">
+                <input type="file" accept="image/*" capture="camera" style="visibility:hidden" id="camera_input">
+                <input type="file" accept="image/*"  style="visibility:hidden" id="local_input">
+                <!-- <input type="file" accept="video/*" capture="camera"> -->
+            </div>
+            <div id="bottom-bar" class="toolbar">
+                <button id="take_a_photo" class="take_a_photo"></button>
+                <button class='rotate'></button>
+            </div>
+        </div>
+        <div id="detect" class="container hide">
+            <div id="viewer-container">
+                <div id="viewer">
+                    <canvas id="preview"></canvas>
+                    <canvas id="annotations"></canvas>
+                </div>
+            </div>
+            <div class='result'>
+                <div class='result_container'>
+                    <div id="progress"></div>
+                </div>
+                <div class="sub-toolbar">
+                    <div id="slide">
+                        <ul>
+                            <li id="cats-detect" data-action="self.cat" class="icon-cat icon snap_tab"><span>猫</span></li>
+                            <li id="more-detect" data-action="self.more" class="icon-more icon snap_tab"><span>更多</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="toolbar">
+                <button class="take_a_photo"></button>
+                <button class='rotate'></button>
+            </div>
+        </div>
+        <div id='mask'>
+            <div class="content">
+                <div class="circle"></div>
+                <div class="circle1"></div>
+            </div>
+        </div>
+
+        <script>
+            var result = $('.result');
+            PopupBottom(result);
+            $('#viewer').on('click',function(){
+                result.shift();
+            });
+            $('.take_a_photo').on('click',function(){
+                result.popdown();
+            });
+            $('.rotate').on('click',function(){
+                /*
+                setTimeout(function(){
+                    showResult();
+                    result.popdown();
+                },10);
+                */
+            });
+            function tileImage(){
+                var height = document.body.offsetHeight - $('.toolbar').height();
+                var width  = document.body.offsetWidth;
+                var pwidth = Math.floor($('#preview').attr('width') * height / $('#preview').attr('height'));
+                var pheight = Math.floor($('#preview').attr('height') * width / $('#preview').attr('width'));
+                if(pwidth >= width) var leftOffset = (pwidth - document.body.offsetWidth)/2;
+                else var topOffset = (pheight - document.body.offsetHeight)/2;
+                $('#viewer-container').height(height);
+                $('#viewer-container').width(width);
+                $('#viewer').height(height);
+                $('#viewer').width(width);
+                if(leftOffset){
+                    $('#annotations').attr('width',$('#preview').attr('width'));
+                    $('#annotations').attr('height',$('#preview').attr('height'));
+                    $('#annotations').width(pwidth);
+                    $('#annotations').height(height);
+                    $('#preview').width(pwidth);
+                    $('#preview').height(height);
+                }
+                else{
+                    $('#annotations').attr('width',$('#preview').attr('width'));
+                    $('#annotations').attr('height',$('#preview').attr('height'));
+                    $('#annotations').width(width);
+                    $('#annotations').height(pheight);
+                    $('#preview').width(width);
+                    $('#preview').height(pheight);
+                }
+            }
+            function showResult(){
+                result.popup();
+            }
+
+            var snap = createSnap()
+            .bindClickTo('.take_a_photo')
+            .setCameraInput('#camera_input')
+            .setTabs('.snap_tab')
+            .onReady(showResult)
+            .start();
+            $('#slide').slide('show');
+            Rotate.init();
+        </script>
+    </body>
+</html>
+
