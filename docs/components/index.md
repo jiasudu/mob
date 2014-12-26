@@ -1,7 +1,8 @@
 ---
 layout: post
-category: beginning
+category: components
 ---
+
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 ## header
