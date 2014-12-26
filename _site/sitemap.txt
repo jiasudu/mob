@@ -14,9 +14,10 @@
 /docs/css/helper.html
 /docs/css/icon.html
 /docs/css/image.html
-/docs/css/index.html
-/docs/beginning/index.html
 /docs/components/index.html
+/docs/beginning/index.html
+/docs/javascript/index.html
+/docs/css/index.html
 /docs/components/list.html
 /docs/components/loading.html
 /docs/javascript/modal.html
@@ -27,7 +28,6 @@
 /sitemap.txt
 /docs/javascript/tab.html
 /docs/css/table.html
-/docs/components/tabs.html
 /docs/components/thumbnails.html
 /docs/css/tip.html
 /docs/javascript/top.html

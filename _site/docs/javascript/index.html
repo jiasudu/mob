@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>javascript</title>
     
     <meta name="author" content="mob team">
 
@@ -93,39 +93,60 @@
         
 <article class="doc-content">
     <div class="toc affix"></div>
-    <h1>tabs</h1>
+    <p><script async src="//assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2>tab</h2>
+
+<p data-height="268" data-theme-id="10821" data-slug-hash="LEROzm" data-default-tab="result" data-user="mobframe" class='codepen'>See the Pen <a href='http://codepen.io/mobframe/pen/LEROzm/'>LEROzm</a> by mobframe (<a href='http://codepen.io/mobframe'>@mobframe</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
 <blockquote>
-<p>tabs 是可切换标签。</p>
+<p>接口</p>
 </blockquote>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">$()</span>.tab
+</code></pre></div>
+<blockquote>
+<p>事件</p>
+</blockquote>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">- .show
+- .shown
+</code></pre></div>
+<blockquote>
+<p>示例</p>
+</blockquote>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">$(</span><span class="s1">&#39;a[data-toggle=&quot;tab&quot;]&#39;</span><span class="k">)</span>.on<span class="o">(</span><span class="s1">&#39;shown&#39;</span>, <span class="k">function</span> <span class="o">(</span>e<span class="o">)</span> <span class="o">{</span>
+            e.target // activated tab
+            e.relatedTarget // previous tab
+    <span class="o">})</span>
+</code></pre></div>
+<h2>modal</h2>
 
 <ul>
 <li>第一个demo</li>
 </ul>
 
-<div class='article-demo'>
-    
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav nav-pills&quot;</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;li&gt;</span>tab1<span class="nt">&lt;/li&gt;</span>
-       <span class="nt">&lt;li&gt;</span>tab2<span class="nt">&lt;/li&gt;</span>
-       <span class="nt">&lt;li&gt;</span>tab3<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;/ul&gt;</span></code></pre></div>
-
-</div>
+<p data-height="268" data-theme-id="10821" data-slug-hash="WbGXdQ" data-default-tab="result" data-user="mobframe" class='codepen'>See the Pen <a href='http://codepen.io/mobframe/pen/WbGXdQ/'>WbGXdQ</a> by mobframe (<a href='http://codepen.io/mobframe'>@mobframe</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
 <ul>
 <li>第二个demo</li>
 </ul>
 
-<div class='article-demo'>
-    
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav nav-pills nav-justified&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;li&gt;</span>tab1<span class="nt">&lt;/li&gt;</span>
-            <span class="nt">&lt;li&gt;</span>tab2<span class="nt">&lt;/li&gt;</span>
-            <span class="nt">&lt;li&gt;</span>tab3<span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;/ul&gt;</span></code></pre></div>
+<p data-height="268" data-theme-id="10821" data-slug-hash="KwgyZM" data-default-tab="result" data-user="mobframe" class='codepen'>See the Pen <a href='http://codepen.io/mobframe/pen/KwgyZM/'>KwgyZM</a> by mobframe (<a href='http://codepen.io/mobframe'>@mobframe</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
-</div>
+<h2>delay</h2>
+
+<blockquote>
+<p>移动浏览器因为支持双击事件会有一个点击穿透现象。该组件会给浏览器加一个点击延迟，解决点击穿透现象。</p>
+</blockquote>
+
+<p data-height="268" data-theme-id="10821" data-slug-hash="ZYpave" data-default-tab="result" data-user="mobframe" class='codepen'>See the Pen <a href='http://codepen.io/mobframe/pen/ZYpave/'>ZYpave</a> by mobframe (<a href='http://codepen.io/mobframe'>@mobframe</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+<h2>top</h2>
+
+<blockquote>
+<p>返回顶部</p>
+</blockquote>
+
+<p data-height="268" data-theme-id="10821" data-slug-hash="XJjzVa" data-default-tab="result" data-user="mobframe" class='codepen'>See the Pen <a href='http://codepen.io/mobframe/pen/XJjzVa/'>XJjzVa</a> by mobframe (<a href='http://codepen.io/mobframe'>@mobframe</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
 </article>
 <script type="text/javascript">

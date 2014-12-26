@@ -1,6 +1,5 @@
 ---
 layout: post
-title: 快速入门
 category: beginning
 ---
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
@@ -10,18 +9,6 @@ category: beginning
 > header是页面顶部横栏。
 
 <p data-height="268" data-theme-id="0" data-slug-hash="MYeVRr" data-default-tab="result" data-user="mobframe" class='codepen'>See the Pen <a href='http://codepen.io/mobframe/pen/MYeVRr/'>MYeVRr</a> by mobframe (<a href='http://codepen.io/mobframe'>@mobframe</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-
-## tabs
-
-> tabs 是可切换标签。
-
-* 第一个demo
-
-<p data-height="268" data-theme-id="10821" data-slug-hash="ZYOxNx" data-default-tab="result" data-user="mobframe" class='codepen'>See the Pen <a href='http://codepen.io/mobframe/pen/ZYOxNx/'>ZYOxNx</a> by mobframe (<a href='http://codepen.io/mobframe'>@mobframe</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-
-* 第二个demo
-
-<p data-height="268" data-theme-id="10821" data-slug-hash="RNGgQd" data-default-tab="result" data-user="mobframe" class='codepen'>See the Pen <a href='http://codepen.io/mobframe/pen/RNGgQd/'>RNGgQd</a> by mobframe (<a href='http://codepen.io/mobframe'>@mobframe</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
 ## navbar
 
