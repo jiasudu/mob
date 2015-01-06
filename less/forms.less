@@ -6,11 +6,12 @@
 // -------------------------------------
 
 .form {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-	margin: @form-margin;
-
+    margin: @form-margin;
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
     :before, :after{
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -74,16 +75,21 @@
     input[type=submit].block, button[type=submit].block{
         width: @form-elem-width;
     }
+    label.inline{
+        display: inline-block;
+    }
     .checkbox-wrap, .radio-wrap{
         min-width: 20px;
         margin-bottom: @form-elem-margin-bottom;
         padding: 0 20px 0 1px;
     }
-    label.inline{
-        display: inline-block;
-    }
+
     /**  单行表单样式  **/
-    .form-inline{
+
+    &.form-inline{
+        label {
+            display: inline-block;
+        }
         display: -webkit-box;
         -webkit-box-origin: horizontal;
         -webkit-box-align: center;
@@ -96,16 +102,17 @@
                 padding-right: @form-elem-last-margin;
             }
         }
-        input, select{
-            margin-bottom: @form-elem-last-margin;
-        }
         input[type=button], input[type=submit], button{
             width: @form-elem-width;
+        }
+        input, select{
+            margin-bottom: @form-elem-last-margin;
         }
     }
 
     /**  水平排列的表单样式  **/
-    .form-horizontal{
+
+    &.form-horizontal{
         .form-item{
             display: -webkit-box;
             -webkit-box-orient: horizontal;

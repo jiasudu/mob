@@ -8,3 +8,9 @@ build:
 
 dev:
 	grunt dev
+
+run:
+	grunt dev
+
+server:
+	grunt dev

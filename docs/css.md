@@ -126,6 +126,51 @@ Bottombar是底部导航栏
 </table>
 {% endhighlight %}
 
+##Forms (表单)
+适合移动展现的表单。示例: [examples/forms.html](examples/forms.html)
+
+{% highlight html %}
+
+<h3>常规表单</h3>
+<p>每个元素都表现为块级元素</p>
+<div class="form">
+    <div class="form-item">
+        <label>用户名
+            <input type="text">
+        </label>
+    </div> 
+</div>
+
+<h3>单行表单</h3>
+<p>所有表单都展现在一行内</p>
+<form class="form form-inline">
+    <div class="form-item">
+        <select>
+            <option value="1">水果</option>
+            <option value="2">蔬菜</option>
+        </select>
+    </div>
+    <div class="form-item">
+        <input type="text"></div>
+    </div>
+    <div class="form-item">
+        <input type="submit" name="search" class="btn btn-primary" value="搜索">
+    </div>
+</form>
+
+<h3>行内表单</h3>
+<p>水平排列的表单</p>
+<div class="form form-horizontal">
+    <div class="form-item">
+        <label for="country">国家</label><select id="country"><option>法国</option></select>
+    </div>
+    <div class="form-item">
+        <label for="email">邮箱</label><input type="email" name="email" value="邮箱" id="email">
+    </div>
+</div>
+
+{% endhighlight %}
+
 ##Grids (九宫格)
 Grids 为九宫格自动排版的组件
 

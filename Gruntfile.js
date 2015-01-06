@@ -57,6 +57,7 @@ module.exports = function(grunt) {
                   sourceMapURL: '<%= pkg.name %>.css.map',
                   sourceMapFilename: 'release/css/<%= pkg.name %>.css.map'
                 },
+                less_dir: "less/",
                 files: {
                   'release/css/<%= pkg.name %>.css': 'less/mob.less'
                 }
@@ -91,7 +92,7 @@ module.exports = function(grunt) {
             },
             */
             less: {
-                files: '<%= less.compileCore.files %>',
+                files: '<%= less.compileCore.less_dir %>**',
                 tasks: ['dist-css','copy:docs'],
                 options: {
                     livereload: true

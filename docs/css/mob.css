@@ -2259,24 +2259,6 @@ html.webapp,
   transition: transform 300ms ease;
 }
 /* vim: set expandtab ts=4 sw=4 sts=4 tw=100: */
-.well {
-  min-height: 20px;
-  padding: 9px;
-  border-radius: 3px;
-  margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #e3e3e3;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-}
-.well blockquote {
-  border-color: #ddd;
-  border-color: rgba(0, 0, 0, 0.15);
-}
-.well-lg {
-  padding: 24px;
-  border-radius: 6px;
-}
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
@@ -2441,6 +2423,191 @@ html.webapp,
   margin: 8px 10px 0;
   padding: 12px 12px;
   color: #333333;
+}
+.form {
+  margin: 15px 0;
+  /**  单行表单样式  **/
+  /**  水平排列的表单样式  **/
+}
+.form * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form :before,
+.form :after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form .form-item:before,
+.form .form-item:after {
+  content: " ";
+  display: table;
+}
+.form .form-item:after {
+  clear: both;
+}
+.form .form-item:before,
+.form .form-item:after {
+  content: " ";
+  display: table;
+}
+.form .form-item:after {
+  clear: both;
+}
+.form .form-item.has-error input,
+.form .form-item.has-error select,
+.form .form-item.has-error area {
+  border-color: #faebcc;
+}
+.form .form-item .block-help-text {
+  dislay: block;
+  margin-top: -0.2em;
+  margin-bottom: 10px;
+  color: #aaaaaa;
+  font-size: 12px;
+}
+.form .form-item .inline-help-text {
+  padding: 0 4px;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+.form label {
+  display: block;
+  margin: 0 0 0.5em;
+}
+.form input[type=text],
+.form input[type=email],
+.form input[type=number],
+.form input[type=password],
+.form input[type=search],
+.form input[type=tel],
+.form select,
+.form textarea {
+  display: block;
+  width: 100%;
+  height: 35px;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: 0;
+  line-height: 1;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.form input[type=text]:inline,
+.form input[type=email]:inline,
+.form input[type=number]:inline,
+.form input[type=password]:inline,
+.form input[type=search]:inline,
+.form input[type=tel]:inline,
+.form select:inline,
+.form textarea:inline {
+  displaly: inline-block;
+}
+.form input,
+.form select,
+.form textarea {
+  -webkit-font-smoothing: antialiased;
+}
+.form textarea {
+  min-height: 90px;
+}
+.form input[type=radio],
+.form input[type=checkbox] {
+  padding: 0;
+  float: left;
+  margin: 1px 7px 0 0;
+}
+.form input[type=submit].block,
+.form button[type=submit].block {
+  width: 100%;
+}
+.form label.inline {
+  display: inline-block;
+}
+.form .checkbox-wrap,
+.form .radio-wrap {
+  min-width: 20px;
+  margin-bottom: 10px;
+  padding: 0 20px 0 1px;
+}
+.form.form-inline {
+  display: -webkit-box;
+  -webkit-box-origin: horizontal;
+  -webkit-box-align: center;
+  overflow: hidden;
+}
+.form.form-inline label {
+  display: inline-block;
+}
+.form.form-inline .form-item {
+  display: block;
+  -webkit-box-flex: 1;
+  padding-right: 4px;
+}
+.form.form-inline .form-item:last-of-type {
+  padding-right: 0;
+}
+.form.form-inline input[type=button],
+.form.form-inline input[type=submit],
+.form.form-inline button {
+  width: 100%;
+}
+.form.form-inline input,
+.form.form-inline select {
+  margin-bottom: 0;
+}
+.form.form-horizontal .form-item {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: center;
+}
+.form.form-horizontal .form-item label {
+  text-align: right;
+  min-width: 3em;
+  margin-right: 5px;
+}
+.form.form-horizontal .form-item.align-top {
+  -webkit-box-align: start;
+}
+.form.form-horizontal .form-item.align-top label:first-of-type {
+  padding-top: 5px;
+}
+.form.form-horizontal input[type=text],
+.form.form-horizontal input[type=email],
+.form.form-horizontal input[type=number],
+.form.form-horizontal input[type=password],
+.form.form-horizontal input[type=search],
+.form.form-horizontal input[type=tel],
+.form.form-horizontal select,
+.form.form-horizontal textarea {
+  -webkit-box-flex: 1;
+  margin-right: 5px;
+}
+.form.form-horizontal input[type=text]:last-of-type,
+.form.form-horizontal input[type=email]:last-of-type,
+.form.form-horizontal input[type=number]:last-of-type,
+.form.form-horizontal input[type=password]:last-of-type,
+.form.form-horizontal input[type=search]:last-of-type,
+.form.form-horizontal input[type=tel]:last-of-type,
+.form.form-horizontal select:last-of-type,
+.form.form-horizontal textarea:last-of-type {
+  margin-right: 0;
+}
+.form.form-horizontal .wd4,
+.form.form-horizontal .wd6,
+.form.form-horizontal .wd8 {
+  width: 9em;
+}
+.form.form-horizontal .wd6 {
+  width: 7em;
+}
+.form.form-horizontal .wd4 {
+  width: 5em;
 }
 .pull-to-refresh {
   position: absolute;
